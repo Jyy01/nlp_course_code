@@ -164,16 +164,6 @@ class HiddenMarkovModel(object):
         # 统计在每个标签中出现每个字的次数，该次数 / 这个标签出现的次数 = 发射概率
         self.B_dic = {k: {k1: (v1 + 1) / count_dic[k] for k1, v1 in v.items()} for k, v in self.B_dic.items()}  # 序列化
 
-        # print(self.B_dic.items())
-        # print("'我'字出现的情况:")
-        # for i in self.state_list:
-        #     print("state:", i, "  frequency:", self.B_dic[i]['我'])
-        # print("'秃'字出现的情况:")
-        # for i in self.state_list:
-        #     print("state:", i, "  frequency:", self.B_dic[i]['秃'])  # 报错，训练集没有该字
-        # print("'然'字出现的情况:")
-        # for i in self.state_list:
-        #     print("state:", i, "  frequency:", self.B_dic[i]['然'])
 
         # 保存数据到pkl文件中
         with open(self.model_file, 'wb') as f:
